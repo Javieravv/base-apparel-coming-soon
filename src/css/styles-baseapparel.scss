@@ -1,0 +1,66 @@
+@import "variables.scss";
+@import "mixings.scss";
+@import "config.scss";
+
+.section-main {
+    .img-logo {
+        padding: $paddingLogo 0 $paddingLogo calc($paddingLogo + 10px);
+    }
+
+    .img-heroe {
+        // border: red solid 1px;
+        img {
+            width: 100%;
+        }
+    }
+
+    .base-form {
+        padding: $paddingForm calc($paddingForm / 2);
+
+        .title-base {
+            font-size: 4rem;
+            color: $color-Desaturated-Red;
+            opacity: 0.8;
+            letter-spacing: 5px;
+            text-align: center;
+            @include margin-element ($marginElement, $marginElement);
+            span {
+                color: black;
+            }
+        }
+
+        .paragraph-form {
+            text-align: center;
+            color: $color-Desaturated-Red;
+            @include margin-element ($marginElement, $marginElement);
+        }
+
+        .form-base {
+            @include margin-element ($marginElement, $marginElement);
+            position: relative;
+
+            input {
+                @include margin-element ($marginElement, $marginElement);
+                width: 100%;
+                height: $heightInput;
+                padding: $paddingInput $paddingInput;
+                border: 1px solid $color-Desaturated-Red;
+                border-radius: $borderRadiusInput;
+            }
+
+            .image-form {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: $color-Desaturated-Red;
+                padding: $paddingInput $paddingInput;
+                width: calc($heightInput * 1.5);
+                height: $heightInput;
+                position: absolute;
+                top: $marginElement;
+                right: -20px;
+                border-radius: $borderRadiusInput;
+            }
+        }
+    }
+}
