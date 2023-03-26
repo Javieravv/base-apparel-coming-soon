@@ -3,51 +3,37 @@
 @import "config.scss";
 
 main {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
+    @media (min-width: $width-Desktop) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+    }
 }
 
 .section-main {
-    width: 70%;
-    display: grid;
-    justify-content: center;
-    grid-template-columns: 40% 60%;
-    grid-template-rows: calc($heightRows - 50px) repeat(3, $heightRows);
-    grid-template-areas: "logo  hero"
-                         "form  hero"
-                         "form  hero"
-                         "form  hero";
-
     .img-logo {
-        grid-area: logo;
         padding: $paddingLogo 0 $paddingLogo calc($paddingLogo + 10px);
     }
 
     .img-heroe {
-        grid-area: hero;
-        background: url('/images/hero-desktop.jpg');
+        // border: red solid 1px;
+        width: 100%;
+        min-height: 400px;
+        background: url('/images/hero-mobile.jpg');
         background-size: contain;
         background-repeat: no-repeat;
-        background-position: top right;
     }
 
     .base-form {
         padding: $paddingForm calc($paddingForm / 2);
-        padding: 0 calc($paddingForm / 2);
-        grid-area: form;
-        display: flex;
-        flex-direction: column;
-        align-items: left;
-
+        
         .title-base {
-            text-align: left;
             font-size: 4rem;
             color: $color-Desaturated-Red;
             opacity: 0.8;
             letter-spacing: 5px;
-            // text-align: center;
+            text-align: center;
             @include margin-element ($marginElement, $marginElement);
             span {
                 color: black;
@@ -55,12 +41,10 @@ main {
         }
 
         .paragraph-form {
-            text-align: left;
             color: $color-Desaturated-Red;
-            // text-align: center;
+            text-align: center;
             font-weight: 600;
             @include margin-element ($marginElement, $marginElement);
-            padding-right: $marginElement;
             line-height: 2;
         }
 
@@ -68,7 +52,7 @@ main {
             @include margin-element ($marginElement, $marginElement);
             position: relative;
 
-            .input-form {
+            input {
                 @include margin-element ($marginElement, 0);
                 width: 100%;
                 height: $heightInput;
@@ -78,16 +62,10 @@ main {
                 font-size: calc($fontSize + 3px);
                 font-weight: 600;
 
-                &:focus {
-                    outline: none;
-                    // border: 1px solid $color-Desaturated-Red;
-                }
-
                 &::placeholder {
                     color: $color-Desaturated-Red;
                     font-weight: bold;
                 }
-
             }
 
             .boton-form {
@@ -106,7 +84,7 @@ main {
                 cursor: pointer;
 
                 &:hover {
-                    background: $linearGradient2;
+                    background: hsl(0, 80%, 86%);
                 }
             }
 
@@ -133,49 +111,59 @@ main {
         }
     }
 
-    @media screen and (min-width: $width-Desktop) and (max-width: $width-LargDesktop) {
+    @media screen and (max-width: $width-Mobile) {
         /* Estilos CSS para pantallas medianas */
-        width: 80%;
-    }
-
-    @media screen and (min-width: $width-Tablet) and (max-width: $width-Desktop) {
-        /* Estilos CSS para pantallas medianas */
-        width: 90%;
-    }
-
-    @media screen and (min-width: $width-Mobile) and (max-width: $width-Tablet) {
-        /* Estilos CSS para pantallas medianas */
-        width: 100%;
-        grid-template-columns: 60% 40%;
-
-        .img-heroe {
-            background-size: cover;
-        }
-
+        
+          background-color: green;
         
     }
 
-    @media screen and (max-width: $width-Mobile) {
-        /* Estilos CSS para pantallas medianas */
-        width: 100%;       
-        display: flex;
-        flex-direction: column;
+    // @media (min-width: $width-Desktop) {
+    @media (min-width: calc($width-Mobile + 1px)) and (max-width: $width-Desktop) {
+        width: 100%;
+        // margin: 0 auto;
+        display: grid;
+        justify-content: center;
+        grid-template-columns: 40% 60%;
+        grid-template-rows: repeat(4, 180px);
+        grid-template-areas: "logo  hero"
+                             "form  hero"
+                             "form  hero"
+                             "form  hero";
+        
+        .img-logo {
+            grid-area: logo;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+            align-items: center;
+
+        }
 
         .img-heroe {
-            width: 100%;
-            min-height: 400px;
-            background: url('/images/hero-mobile.jpg');
+            grid-area: hero;
+            background: url('/images/hero-desktop.jpg');
             background-size: contain;
             background-repeat: no-repeat;
+            background-position: right;
         }
 
         .base-form {
-            .title-base, .paragraph-form {
-                text-align: center;
+            // padding: $paddingForm calc($paddingForm / 2);
+            padding: 0 calc($paddingForm / 2);
+
+            grid-area: form;
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+
+            .title-base {
+                text-align: left;
+            }
+
+            .paragraph-form {
+                text-align: left;
             }
         }
-        
     }
-
-    
 }

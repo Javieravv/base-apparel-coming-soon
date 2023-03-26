@@ -5,6 +5,9 @@ import './css/styles-baseapparel.scss';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-        <BasseApparel />
+        <>
+            <h1 className='sr-only'>Base appareal component</h1>
+            <BasseApparel />
+        </>
     </React.StrictMode>,
 )
