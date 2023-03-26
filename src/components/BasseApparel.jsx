@@ -3,10 +3,10 @@ export const BasseApparel = () => {
     return (
         <section className="section-main">
             <div className="img-logo">
-                <img src="public/images/logo.svg" alt="Logo" />
+                <img src="/images/logo.svg" alt="Logo" />
             </div>
             <div className="img-heroe">
-                <img src="public/images/hero-mobile.jpg" alt="Héroe mobile" />
+                <img src="/images/hero-mobile.jpg" alt="Héroe mobile" />
             </div>
             <article className="base-form">
                 <p className="title-base">
